@@ -1,0 +1,86 @@
+{
+    "limit": null,
+    "query": {
+        "negate": false,
+        "queries": [
+            {
+                "negate": false,
+                "object_type": "lead",
+                "type": "object_type"
+            },
+            {
+                "negate": false,
+                "queries": [
+                    {
+                        "negate": false,
+                        "queries": [
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "user_id"
+                                    ],
+                                    "reference_type": "user_or_group",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "field_name": "last_communication_user_id",
+                                    "object_type": "lead",
+                                    "type": "regular_field"
+                                },
+                                "negate": true,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "type": "exists"
+                                },
+                                "field": {
+                                    "custom_field_id": "cf_ixcps2GP7Tw4nDjXjtoNqC9At43KkXNk0d9NaFvNu2X",
+                                    "type": "custom_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "user_id"
+                                    ],
+                                    "reference_type": "user_or_group",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "custom_field_id": "cf_QN63hvQpK9qCVBFwQxI19MeGro3AgUqzk8cR887j4RP",
+                                    "type": "custom_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "stat_cn77H2oT4KwqodVpJ5ngiJRhm93rFZBvvOTNbEQIrHu"
+                                    ],
+                                    "reference_type": "status.lead",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "field_name": "status_id",
+                                    "object_type": "lead",
+                                    "type": "regular_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            }
+                        ],
+                        "type": "and"
+                    }
+                ],
+                "type": "or"
+            }
+        ],
+        "type": "and"
+    },
+    "results_limit": null,
+    "sort": []
+}
