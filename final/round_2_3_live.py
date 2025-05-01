@@ -274,9 +274,8 @@ def main():
     print(f"Total leads processed: {total_leads}")
     print(f"Successfully processed: {successful_updates}")
     print(f"Failed to process: {total_leads - successful_updates}")
-    ## if total leads is not zero then
-    if total_leads 
-    print(f"Success rate: {successful_updates/total_leads*100:.1f}%")
+    if total_leads > 0:
+        print(f"Success rate: {successful_updates/total_leads*100:.1f}%")
     print("="*60)
 
 if __name__ == "__main__":
