@@ -4,7 +4,6 @@ import time
 import base64
 import requests
 from datetime import datetime
-from dotenv import load_dotenv
 
 def make_api_request(headers, url, payload=None, method="GET"):
     """Make an API request with rate limit handling"""
@@ -135,7 +134,6 @@ def get_all_leads(headers, query_payload):
 
 def main():
     # Load environment variables from .env file
-    load_dotenv()
     api_key = os.getenv('pc_close_api_key')
     
     if not api_key:
@@ -276,6 +274,8 @@ def main():
     print(f"Total leads processed: {total_leads}")
     print(f"Successfully processed: {successful_updates}")
     print(f"Failed to process: {total_leads - successful_updates}")
+    ## if total leads is not zero then
+    if total_leads 
     print(f"Success rate: {successful_updates/total_leads*100:.1f}%")
     print("="*60)
 

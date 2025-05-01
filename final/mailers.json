@@ -16,12 +16,20 @@
                         "queries": [
                             {
                                 "condition": {
-                                    "mode": "beginning_of_words",
-                                    "type": "text",
-                                    "value": "Multi Property Owner"
+                                    "before": {
+                                        "range": "today",
+                                        "type": "start_end_of_predefined_relative_period",
+                                        "which": "end"
+                                    },
+                                    "on_or_after": {
+                                        "range": "today",
+                                        "type": "start_end_of_predefined_relative_period",
+                                        "which": "start"
+                                    },
+                                    "type": "moment_range"
                                 },
                                 "field": {
-                                    "custom_field_id": "cf_4i35pKH3q9WG2GKZOHgTmGYouLhW7vwXDNeRScH3GpM",
+                                    "custom_field_id": "cf_YgLBH6cihcQCc1DmjFSWARc7HlBcLgKevED1KUdh0Bm",
                                     "type": "custom_field"
                                 },
                                 "negate": false,
@@ -29,10 +37,20 @@
                             },
                             {
                                 "condition": {
-                                    "type": "exists"
+                                    "before": {
+                                        "range": "today",
+                                        "type": "start_end_of_predefined_relative_period",
+                                        "which": "end"
+                                    },
+                                    "on_or_after": {
+                                        "range": "today",
+                                        "type": "start_end_of_predefined_relative_period",
+                                        "which": "start"
+                                    },
+                                    "type": "moment_range"
                                 },
                                 "field": {
-                                    "custom_field_id": "cf_QN63hvQpK9qCVBFwQxI19MeGro3AgUqzk8cR887j4RP",
+                                    "custom_field_id": "cf_9iBTbWy34YhXjzER2hwJTMRmknKNBtHxQwMgKYmh2k5",
                                     "type": "custom_field"
                                 },
                                 "negate": true,
@@ -41,7 +59,7 @@
                             {
                                 "condition": {
                                     "object_ids": [
-                                        "stat_cn77H2oT4KwqodVpJ5ngiJRhm93rFZBvvOTNbEQIrHu"
+                                        "stat_L9WMTaWy1pYq4YMyXUbevaQolu2TkXKYbilZ6oTEtts"
                                     ],
                                     "reference_type": "status.lead",
                                     "type": "reference"
@@ -52,30 +70,6 @@
                                     "type": "regular_field"
                                 },
                                 "negate": false,
-                                "type": "field_condition"
-                            },
-                            {
-                                "condition": {
-                                    "type": "exists"
-                                },
-                                "field": {
-                                    "custom_field_id": "cf_ixcps2GP7Tw4nDjXjtoNqC9At43KkXNk0d9NaFvNu2X",
-                                    "type": "custom_field"
-                                },
-                                "negate": true,
-                                "type": "field_condition"
-                            },
-                            {
-                                "condition": {
-                                    "mode": "beginning_of_words",
-                                    "type": "text",
-                                    "value": "QTP Tool"
-                                },
-                                "field": {
-                                    "custom_field_id": "cf_Rqb3UF9MmqmSV4tFoonXGXUb2SkWpyma8yx9QYxV4qx",
-                                    "type": "custom_field"
-                                },
-                                "negate": true,
                                 "type": "field_condition"
                             }
                         ],

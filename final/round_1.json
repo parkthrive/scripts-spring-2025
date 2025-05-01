@@ -1,0 +1,132 @@
+{
+    "limit": null,
+    "query": {
+        "negate": false,
+        "queries": [
+            {
+                "negate": false,
+                "object_type": "lead",
+                "type": "object_type"
+            },
+            {
+                "negate": false,
+                "queries": [
+                    {
+                        "negate": false,
+                        "queries": [
+                            {
+                                "negate": false,
+                                "queries": [
+                                    {
+                                        "condition": {
+                                            "object_ids": [
+                                                "stat_L9WMTaWy1pYq4YMyXUbevaQolu2TkXKYbilZ6oTEtts"
+                                            ],
+                                            "reference_type": "status.lead",
+                                            "type": "reference"
+                                        },
+                                        "field": {
+                                            "field_name": "status_id",
+                                            "object_type": "lead",
+                                            "type": "regular_field"
+                                        },
+                                        "negate": false,
+                                        "type": "field_condition"
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "exists"
+                                        },
+                                        "field": {
+                                            "custom_field_id": "cf_NJZENosOP5ifhJap5mDj4sMeKiz53H6YLRPNrsW5LdX",
+                                            "type": "custom_field"
+                                        },
+                                        "negate": false,
+                                        "type": "field_condition"
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "term",
+                                            "values": [
+                                                "Passed"
+                                            ]
+                                        },
+                                        "field": {
+                                            "custom_field_id": "cf_9zQzTitotPpUECpMn7tJu5m71kGMerxip2v9ovF34xJ",
+                                            "type": "custom_field"
+                                        },
+                                        "negate": false,
+                                        "type": "field_condition"
+                                    }
+                                ],
+                                "type": "and"
+                            },
+                            {
+                                "negate": false,
+                                "related_object_type": "opportunity",
+                                "related_query": {
+                                    "negate": false,
+                                    "queries": [
+                                        {
+                                            "condition": {
+                                                "object_ids": [
+                                                    "stat_IhSstcuVR2EhiaHesQwowu9Y0JkjQfVV6BvBhXQxBnT"
+                                                ],
+                                                "reference_type": "status.opportunity",
+                                                "type": "reference"
+                                            },
+                                            "field": {
+                                                "field_name": "status_id",
+                                                "object_type": "opportunity",
+                                                "type": "regular_field"
+                                            },
+                                            "negate": false,
+                                            "type": "field_condition"
+                                        },
+                                        {
+                                            "condition": {
+                                                "before": {
+                                                    "direction": "past",
+                                                    "moment": {
+                                                        "type": "now"
+                                                    },
+                                                    "offset": {
+                                                        "days": 14,
+                                                        "hours": 0,
+                                                        "minutes": 0,
+                                                        "months": 0,
+                                                        "seconds": 0,
+                                                        "weeks": 0,
+                                                        "years": 0
+                                                    },
+                                                    "type": "offset",
+                                                    "which_day_end": "start"
+                                                },
+                                                "on_or_after": null,
+                                                "type": "moment_range"
+                                            },
+                                            "field": {
+                                                "custom_field_id": "cf_wlmTmD6U8hk3Br48unSR2Z8sIs4sDNRQPG9f0cByLdk",
+                                                "type": "custom_field"
+                                            },
+                                            "negate": false,
+                                            "type": "field_condition"
+                                        }
+                                    ],
+                                    "type": "and"
+                                },
+                                "this_object_type": "lead",
+                                "type": "has_related"
+                            }
+                        ],
+                        "type": "and"
+                    }
+                ],
+                "type": "and"
+            }
+        ],
+        "type": "and"
+    },
+    "results_limit": null,
+    "sort": []
+}

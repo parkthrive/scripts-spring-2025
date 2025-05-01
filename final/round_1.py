@@ -4,11 +4,9 @@ import time
 import base64
 import requests
 from datetime import datetime
-from dotenv import load_dotenv
 
 def main():
-    # Load environment variables from .env file (one level up)
-    load_dotenv('../.env')
+
     api_key = os.getenv('pc_close_api_key')
     
     if not api_key:
