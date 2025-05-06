@@ -1,0 +1,154 @@
+{
+    "limit": null,
+    "query": {
+        "negate": false,
+        "queries": [
+            {
+                "negate": false,
+                "object_type": "lead",
+                "type": "object_type"
+            },
+            {
+                "negate": false,
+                "queries": [
+                    {
+                        "negate": false,
+                        "queries": [
+                            {
+                                "condition": {
+                                    "mode": "beginning_of_words",
+                                    "type": "text",
+                                    "value": "Multi Property Owner"
+                                },
+                                "field": {
+                                    "custom_field_id": "cf_4i35pKH3q9WG2GKZOHgTmGYouLhW7vwXDNeRScH3GpM",
+                                    "type": "custom_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "user_id"
+                                    ],
+                                    "reference_type": "user_or_group",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "custom_field_id": "cf_QN63hvQpK9qCVBFwQxI19MeGro3AgUqzk8cR887j4RP",
+                                    "type": "custom_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "stat_cn77H2oT4KwqodVpJ5ngiJRhm93rFZBvvOTNbEQIrHu"
+                                    ],
+                                    "reference_type": "status.lead",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "field_name": "status_id",
+                                    "object_type": "lead",
+                                    "type": "regular_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            }
+                        ],
+                        "type": "and"
+                    },
+                    {
+                        "negate": false,
+                        "queries": [
+                            {
+                                "negate": false,
+                                "queries": [
+                                    {
+                                        "negate": false,
+                                        "queries": [
+                                            {
+                                                "negate": false,
+                                                "queries": [
+                                                    {
+                                                        "condition": {
+                                                            "gt": 0,
+                                                            "type": "number_range"
+                                                        },
+                                                        "field": {
+                                                            "field_name": "num_phone_numbers",
+                                                            "object_type": "lead",
+                                                            "type": "regular_field"
+                                                        },
+                                                        "negate": false,
+                                                        "type": "field_condition"
+                                                    }
+                                                ],
+                                                "type": "and"
+                                            }
+                                        ],
+                                        "type": "and"
+                                    },
+                                    {
+                                        "negate": true,
+                                        "related_object_type": "activity.call",
+                                        "related_query": {
+                                            "negate": false,
+                                            "type": "match_all"
+                                        },
+                                        "this_object_type": "lead",
+                                        "type": "has_related"
+                                    }
+                                ],
+                                "type": "and"
+                            },
+                            {
+                                "negate": false,
+                                "queries": [
+                                    {
+                                        "negate": false,
+                                        "queries": [
+                                            {
+                                                "condition": {
+                                                    "gt": 0,
+                                                    "type": "number_range"
+                                                },
+                                                "field": {
+                                                    "field_name": "num_email_addresses",
+                                                    "object_type": "lead",
+                                                    "type": "regular_field"
+                                                },
+                                                "negate": false,
+                                                "type": "field_condition"
+                                            }
+                                        ],
+                                        "type": "and"
+                                    },
+                                    {
+                                        "negate": true,
+                                        "related_object_type": "activity.email",
+                                        "related_query": {
+                                            "negate": false,
+                                            "type": "match_all"
+                                        },
+                                        "this_object_type": "lead",
+                                        "type": "has_related"
+                                    }
+                                ],
+                                "type": "and"
+                            }
+                        ],
+                        "type": "or"
+                    }
+                ],
+                "type": "and"
+            }
+        ],
+        "type": "and"
+    },
+    "results_limit": null,
+    "sort": []
+}

@@ -4,11 +4,9 @@ import time
 import base64
 import requests
 import re
-from dotenv import load_dotenv
+import datetime
 
 def main():
-    # Load environment variables from .env file (one level up)
-    load_dotenv('../.env')
     api_key = os.getenv('close_lead_assigner_api')
     
     if not api_key:
@@ -34,8 +32,8 @@ def main():
     }
     
     # Load the smart view queries with updated file paths
-    counting_payload = load_query_from_json("la_freshies.json")
-    reservoir_payload = load_query_from_json("freshies_reservoir.json")
+    counting_payload = load_query_from_json("la_reassigned.json")
+    reservoir_payload = load_query_from_json("reassigned_reservoir.json")
     
     if not counting_payload:
         # Try to use the uploaded paste.txt content
@@ -50,7 +48,7 @@ def main():
         return
     
     # Parse the sales_reps file (one level up)
-    sales_reps = parse_sales_reps_file("../sales_reps")
+    sales_reps = parse_sales_reps_file("./sales_reps.txt")
     
     if not sales_reps:
         print("ERROR: No sales reps found.")
@@ -277,8 +275,12 @@ def assign_leads_to_rep(headers, payload, rep_name, rep_id, needed_leads):
     # Create a copy of the payload
     rep_payload = json.loads(json.dumps(payload))
     
-    # Custom field ID for Sales Owner
-    custom_field_id = 'cf_QN63hvQpK9qCVBFwQxI19MeGro3AgUqzk8cR887j4RP'
+    # Custom field IDs
+    sales_owner_field_id = 'cf_QN63hvQpK9qCVBFwQxI19MeGro3AgUqzk8cR887j4RP'
+    reassigned_field_id = 'cf_ixcps2GP7Tw4nDjXjtoNqC9At43KkXNk0d9NaFvNu2X'
+    
+    # Get today's date in ISO format (YYYY-MM-DD)
+    today_date = datetime.datetime.now().strftime('%Y-%m-%d')
     
     # Handle pagination to get leads
     all_leads = []
@@ -316,10 +318,11 @@ def assign_leads_to_rep(headers, payload, rep_name, rep_id, needed_leads):
         if not lead_id:
             continue
         
-        # Prepare update payload for the custom field
-        # Using the correct format for the custom field update
+        # Prepare update payload for both custom fields
+        # Using the correct format for the custom field updates
         update_payload = {
-            f"custom.{custom_field_id}": rep_id
+            f"custom.{sales_owner_field_id}": rep_id,
+            f"custom.{reassigned_field_id}": today_date
         }
         
         # Make the API request to update the lead

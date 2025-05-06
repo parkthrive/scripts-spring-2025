@@ -4,11 +4,9 @@ import time
 import base64
 import requests
 import re
-from dotenv import load_dotenv
 
 def main():
-    # Load environment variables from .env file (one level up)
-    load_dotenv('../.env')
+
     api_key = os.getenv('close_lead_assigner_api')
     
     if not api_key:
@@ -34,8 +32,8 @@ def main():
     }
     
     # Load the smart view queries with updated file paths
-    counting_payload = load_query_from_json("la_freshies.json")
-    reservoir_payload = load_query_from_json("freshies_reservoir.json")
+    counting_payload = load_query_from_json("la_mpo.json")
+    reservoir_payload = load_query_from_json("mpo_reservoir.json")
     
     if not counting_payload:
         # Try to use the uploaded paste.txt content
@@ -50,7 +48,7 @@ def main():
         return
     
     # Parse the sales_reps file (one level up)
-    sales_reps = parse_sales_reps_file("../sales_reps")
+    sales_reps = parse_sales_reps_file("./sales_reps.txt")
     
     if not sales_reps:
         print("ERROR: No sales reps found.")
@@ -341,3 +339,5 @@ def assign_leads_to_rep(headers, payload, rep_name, rep_id, needed_leads):
 
 if __name__ == "__main__":
     main()
+
+

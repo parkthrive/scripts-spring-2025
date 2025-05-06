@@ -5,11 +5,8 @@ import requests
 import re
 import time
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
 
 def main():
-    # Load environment variables from .env file
-    load_dotenv('../.env')
     api_key = os.getenv('close_lead_assigner_api')
     
     if not api_key:
@@ -35,7 +32,7 @@ def main():
     }
     
     # Parse the sales_reps file (one level up)
-    sales_reps = parse_sales_reps_file("../sales_reps")
+    sales_reps = parse_sales_reps_file("./sales_reps.txt")
     
     if not sales_reps:
         print("ERROR: No sales reps found.")
