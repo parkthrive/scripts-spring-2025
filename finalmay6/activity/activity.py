@@ -6,7 +6,7 @@ import re
 import time
 from datetime import datetime, timedelta
 
-def main():
+def lambda_handler(event, context):
     api_key = os.getenv('close_lead_assigner_api')
     
     if not api_key:
@@ -255,6 +255,3 @@ def get_call_data_for_rep(headers, user_id, start_date, end_date):
             'inbound_calls': 0,
             'outbound_calls': 0
         }
-
-if __name__ == "__main__":
-    main()

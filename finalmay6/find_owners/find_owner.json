@@ -1,0 +1,59 @@
+{
+    "limit": null,
+    "query": {
+        "negate": false,
+        "queries": [
+            {
+                "negate": false,
+                "object_type": "lead",
+                "type": "object_type"
+            },
+            {
+                "negate": false,
+                "queries": [
+                    {
+                        "negate": false,
+                        "queries": [
+                            {
+                                "condition": {
+                                    "object_ids": [
+                                        "stat_Fey82w1MhATvVjAe0T2wgULkc7Vf9quUHW93PiMBXka",
+                                        "stat_wVVCSkM7SrOZyopHLDTureyCdSCKQssu429UIiyKxI2"
+                                    ],
+                                    "reference_type": "status.lead",
+                                    "type": "reference"
+                                },
+                                "field": {
+                                    "field_name": "status_id",
+                                    "object_type": "lead",
+                                    "type": "regular_field"
+                                },
+                                "negate": false,
+                                "type": "field_condition"
+                            },
+                            {
+                                "condition": {
+                                    "type": "term",
+                                    "values": [
+                                        "Omer"
+                                    ]
+                                },
+                                "field": {
+                                    "custom_field_id": "cf_sJxTPBRNVTbzNPzEqBBULDrUoYhTfxsSwsfj0SpClmq",
+                                    "type": "custom_field"
+                                },
+                                "negate": true,
+                                "type": "field_condition"
+                            }
+                        ],
+                        "type": "and"
+                    }
+                ],
+                "type": "or"
+            }
+        ],
+        "type": "and"
+    },
+    "results_limit": null,
+    "sort": []
+}

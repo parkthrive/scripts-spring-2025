@@ -5,7 +5,7 @@ import base64
 import requests
 import re
 
-def main():
+def lambda_handler(event, context):
     api_key = os.getenv('close_lead_assigner_api')
     
     if not api_key:
@@ -335,6 +335,3 @@ def assign_leads_to_rep(headers, payload, rep_name, rep_id, needed_leads):
         time.sleep(0.2)
     
     return assigned_count
-
-if __name__ == "__main__":
-    main()
