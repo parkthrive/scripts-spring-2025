@@ -1,0 +1,45 @@
+{
+    "limit": null,
+    "query": {
+        "negate": false,
+        "queries": [
+            {
+                "negate": false,
+                "object_type": "lead",
+                "type": "object_type"
+            },
+            {
+                "negate": false,
+                "queries": [
+                    {
+                        "negate": false,
+                        "related_object_type": "opportunity",
+                        "related_query": {
+                            "negate": false,
+                            "queries": [
+                                {
+                                    "condition": {
+                                        "type": "exists"
+                                    },
+                                    "field": {
+                                        "custom_field_id": "cf_xDLglpyPXow2sw4n4Fayizbu8rviuZaPSwy1wk5foKe",
+                                        "type": "custom_field"
+                                    },
+                                    "negate": true,
+                                    "type": "field_condition"
+                                }
+                            ],
+                            "type": "and"
+                        },
+                        "this_object_type": "lead",
+                        "type": "has_related"
+                    }
+                ],
+                "type": "and"
+            }
+        ],
+        "type": "and"
+    },
+    "results_limit": null,
+    "sort": []
+}
